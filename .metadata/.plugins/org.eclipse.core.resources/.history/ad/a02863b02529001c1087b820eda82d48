@@ -1,0 +1,9 @@
+package com.crud.model;
+
+public class MaintenanceModel {
+	
+	private Long id;
+	private Date dia;
+	
+
+}
