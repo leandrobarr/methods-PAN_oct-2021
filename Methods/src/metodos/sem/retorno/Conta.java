@@ -7,14 +7,12 @@ public class Conta {
 	double saldo;
 	
 	public void sacar(double valor) {
-		saldo = saldo - valor;
-		// ou saldo -= valor
+	saldo -= saldo - valor;
+	//ou saldo -= valor
 	}
 	
 	public void depositar(double valor) {
-		saldo = saldo + valor;
-		// ou saldo += valor
+	saldo = saldo + valor;
+	//ou saldo += valor
 	}
-	
-
 }
