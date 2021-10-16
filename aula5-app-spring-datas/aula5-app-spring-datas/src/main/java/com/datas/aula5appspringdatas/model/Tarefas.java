@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.Calendar;
+import java.util.Date;
 
 @Entity
 public class Tarefas {
@@ -21,6 +22,14 @@ public class Tarefas {
 
     @JsonFormat(pattern = "dd/MM/yyyy")
     private LocalDate date;
+    
+    @Column
+    private Date criadoEm;
+    
+    @PrePersist
+    protected void onCreate() {
+    	criadoEm = new Date();
+    }
 
     //getters e setters
 
@@ -55,4 +64,30 @@ public class Tarefas {
     public void setDate(LocalDate date) {
         this.date = date;
     }
+
+	public Calendar getCreatedAt() {
+		return createdAt;
+	}
+
+	public void setCreatedAt(Calendar createdAt) {
+		this.createdAt = createdAt;
+	}
+
+	public Date getCreated() {
+		return criadoEm;
+	}
+
+	public Date getCriadoEm() {
+		return criadoEm;
+	}
+
+	public void setCriadoEm(Date criadoEm) {
+		this.criadoEm = criadoEm;
+	}
+
+	public void setCreated(Date created) {
+		this.criadoEm = created;
+	}
+    
+    
 }
