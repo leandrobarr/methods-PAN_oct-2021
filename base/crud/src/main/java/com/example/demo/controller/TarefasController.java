@@ -53,5 +53,13 @@ public class TarefasController {
 	public ResponseEntity<TarefasModel> post(@RequestBody TarefasModel tarefinha) {
 		return ResponseEntity.status(HttpStatus.CREATED).body(tarefasRepository.save(tarefinha));
 	}
+	
+	@GetMapping("/listar/tarefa/{tarefa}/{id}")
+	//http://localhost:5000/api/listar/tarefa/digitaAquiTarefa/DigitaId
+	public ResponseEntity<List<TarefasModel>> timeFlamengo(@PathVariable String tarefa, @PathVariable Long id) {
+		return ResponseEntity.ok(tarefasRepository.findByTarefaAndId(tarefa, id));
+	}
+	
+	
 
 }

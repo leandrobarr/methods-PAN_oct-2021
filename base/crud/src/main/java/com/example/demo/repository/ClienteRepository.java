@@ -1,9 +1,21 @@
 package com.example.demo.repository;
 
+import java.util.List;
+
+
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 
 import com.example.demo.model.ClienteModel;
 
-public interface ClienteRepository extends JpaRepository<ClienteModel, Long> {
+public interface ClienteRepository extends JpaRepository<ClienteModel, Integer> {
 
+	
+	@Query(value = "SELECT * FROM CLIENTE_MODEL u WHERE u.tipo = :tipo ",
+			nativeQuery = true)
+	List<ClienteModel> procuraTipoPessoas(Integer tipo);
+	
+	//@Query(value = "SELECT * FROM clientes_model",
+	//    NativeQuery = true)
+	// 
 }
